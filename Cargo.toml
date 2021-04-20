@@ -1,0 +1,17 @@
+[package]
+name = "criterion_gettingstarted"
+version = "0.1.0"
+authors = ["Julia Evans <julia@jvns.ca>"]
+edition = "2018"
+
+[features]
+html_reports = []
+csv_output = []
+
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
+
