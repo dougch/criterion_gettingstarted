@@ -10,8 +10,15 @@ csv_output = []
 
 [dev-dependencies]
 criterion = "0.3"
+criterion-macro = "0.3.4"
+pprof = { version = "0.3", features = ["flamegraph"]}
 
+# Getting started sample
+#[[bench]]
+#name = "my_benchmark"
+#harness = false
+
+# https://www.jibbow.com/posts/criterion-flamegraphs/
 [[bench]]
-name = "my_benchmark"
+name = "flamegraph"
 harness = false
-
