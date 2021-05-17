@@ -51,7 +51,10 @@ jobs:
         run: cargo bench | tee output.txt
 
       - name: Find output
-        run: find . -name output.txt -ls; pwd
+        run: find . -name fib\* -ls; pwd
+
+      - name: Run benchmark
+        run: cargo install flamegraph
 
       - name: Download previous benchmark data
         uses: actions/cache@v1
