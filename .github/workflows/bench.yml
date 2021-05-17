@@ -49,14 +49,22 @@ jobs:
 
       - name: Run benchmark
         run: cargo bench | tee output.txt
+
       - name: Find output
-        run: find . -name output.txt -ls
+        run: find . -name output.txt -ls; pwd
+
+      - name: Download previous benchmark data
+        uses: actions/cache@v1
+        with:
+          path: ./cache
+          key: ${{ runner.os }}-benchmark
 
       - name: Store benchmark result
         uses: rhysd/github-action-benchmark@v1
         with:
           tool: 'cargo'
           output-file-path: output.txt
+          fail-on-alert: true
 
       - name: Run flamegraph 
         run: cargo flamegraph --bench my_benchmark -- --profile-time=5
