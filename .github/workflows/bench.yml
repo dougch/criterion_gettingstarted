@@ -59,12 +59,5 @@ jobs:
           path: ./cache
           key: ${{ runner.os }}-benchmark
 
-      - name: Store benchmark result
-        uses: rhysd/github-action-benchmark@v1
-        with:
-          tool: 'cargo'
-          output-file-path: output.txt
-          fail-on-alert: true
-
       - name: Run flamegraph 
         run: cargo flamegraph --bench my_benchmark -- --profile-time=5
