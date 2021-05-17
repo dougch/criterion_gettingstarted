@@ -11,6 +11,7 @@ csv_output = []
 [dev-dependencies]
 criterion = "0.3"
 criterion-macro = "0.3.4"
+flamegraph = "0.4.0"
 pprof = { version = "0.3", features = ["flamegraph"]}
 
 # Getting started sample
