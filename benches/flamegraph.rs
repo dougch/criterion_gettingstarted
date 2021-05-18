@@ -2,10 +2,10 @@ use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use criterion_gettingstarted::{fibonacci_slow,fibonacci_fast};
 
 pub fn criterion_bench_fib10(c: &mut Criterion) {
-    c.bench_function("fib 20 - slow", |b| b.iter(|| fibonacci_slow(black_box(20))));
+    c.bench_function("fib20slow", |b| b.iter(|| fibonacci_slow(black_box(20))));
 }
 pub fn criterion_bench_fib20(c: &mut Criterion) {
-    c.bench_function("fib 20 - fast", |b| b.iter(|| fibonacci_fast(black_box(20))));
+    c.bench_function("fib20fast", |b| b.iter(|| fibonacci_fast(black_box(20))));
 }
 
 mod perf;

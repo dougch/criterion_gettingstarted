@@ -19,7 +19,11 @@ pprof = { version = "0.3", features = ["flamegraph"]}
 #name = "my_benchmark"
 #harness = false
 
+[[bench]]
+name = "my_benchmark.rs"
+harness = false
+
 # https://www.jibbow.com/posts/criterion-flamegraphs/
 [[bench]]
-name = "flamegraph"
+name = "flamegraph.rs"
 harness = false

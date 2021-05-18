@@ -25,7 +25,8 @@ jobs:
       msrv: ${{ steps.definitions.outputs.msrv }}
     steps:
       - uses: actions/checkout@v2
-
+      - name: Install Flamegraph
+        run: cargo install flamegraph
       - name: Evaluate definitions
         id: definitions
         run: |
@@ -47,20 +48,18 @@ jobs:
           profile: minimal
           override: true
 
-      - name: Run benchmark
-        run: cargo bench | tee output.txt
-
       - name: Find output
         run: find . -name fib\* -ls; pwd
-
-      - name: Run benchmark
-        run: cargo install flamegraph
 
       - name: Download previous benchmark data
         uses: actions/cache@v1
         with:
           path: ./cache
           key: ${{ runner.os }}-benchmark
-
-      - name: Run flamegraph 
-        run: cargo flamegraph --bench my_benchmark -- --profile-time=5
+      - name: Continuous Benchmark
+        uses: rhysd/github-action-benchmark@v1.8.1        with:
+          tool: 'cargo'
+          output-file-path: output.txt
+          fail-on-alert: true
+      - name: Run benchmark
+        run: cargo bench | tee output.txt
