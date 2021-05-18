@@ -8,6 +8,9 @@ edition = "2018"
 html_reports = []
 csv_output = []
 
+[lib]
+bench = false
+
 [dev-dependencies]
 criterion = "0.3"
 criterion-macro = "0.3.4"
