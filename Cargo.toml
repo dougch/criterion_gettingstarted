@@ -15,15 +15,11 @@ flamegraph = "0.4.0"
 pprof = { version = "0.3", features = ["flamegraph"]}
 
 # Getting started sample
-#[[bench]]
-#name = "my_benchmark"
-#harness = false
-
 [[bench]]
-name = "my_benchmark.rs"
+name = "my_benchmark"
 harness = false
 
 # https://www.jibbow.com/posts/criterion-flamegraphs/
 [[bench]]
-name = "flamegraph.rs"
+name = "flamegraph"
 harness = false

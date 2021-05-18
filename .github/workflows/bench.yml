@@ -57,7 +57,8 @@ jobs:
           path: ./cache
           key: ${{ runner.os }}-benchmark
       - name: Continuous Benchmark
-        uses: rhysd/github-action-benchmark@v1.8.1        with:
+        uses: rhysd/github-action-benchmark@v1.8.1
+        with:
           tool: 'cargo'
           output-file-path: output.txt
           fail-on-alert: true
