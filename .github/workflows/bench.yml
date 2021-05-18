@@ -59,7 +59,7 @@ jobs:
       # GHA-benchmark needs the original bencher format to read results.
       # see https://github.com/rhysd/github-action-benchmark/issues/35
       - name: Run benchmark
-        run: cargo bench --bench my_benchmark -- --output-format bencher |gawk '!/WARNING|optional|Gnuplot/{print}' | tee output.txt
+        run: cargo bench --bench my_benchmark -- --output-format bencher | tee output.txt
       - name: Continuous Benchmark
         uses: rhysd/github-action-benchmark@v1.8.1
         with:
