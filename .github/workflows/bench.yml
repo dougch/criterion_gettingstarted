@@ -40,21 +40,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - uses: actions-rs/toolchain@v1
         id: toolchain
         with:
           toolchain: ${{ env.RUST_NIGHTLY_TOOLCHAIN }}
           profile: minimal
           override: true
-
-      - name: Find output
-        run: find . -name fib\* -ls; pwd
-
       - name: Download previous benchmark data
         uses: actions/cache@v1
         with:
-          path: ./cache
+          path: ./target/criterion
           key: ${{ runner.os }}-benchmark
       # GHA-benchmark needs the original bencher format to read results.
       # see https://github.com/rhysd/github-action-benchmark/issues/35
@@ -66,3 +61,5 @@ jobs:
           tool: 'cargo'
           output-file-path: output.txt
           fail-on-alert: true
+          benchmark-data-dir-path: target/criterion
+          external-data-json-path: target/criterion/*/base/benchmark.json
