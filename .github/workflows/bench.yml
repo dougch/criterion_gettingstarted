@@ -55,7 +55,8 @@ jobs:
       # see https://github.com/rhysd/github-action-benchmark/issues/35
       - name: Run benchmark
         run: cargo bench --bench my_benchmark -- --output-format bencher | tee output.txt
-      - name: Continuous Benchmark
+
+      - name: "Continuous Benchmark"
         uses: rhysd/github-action-benchmark@v1.8.1
         with:
           tool: 'cargo'
