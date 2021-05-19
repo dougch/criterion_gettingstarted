@@ -61,5 +61,5 @@ jobs:
           tool: 'cargo'
           output-file-path: output.txt
           fail-on-alert: true
-          benchmark-data-dir-path: target/criterion
-          external-data-json-path: target/criterion/*/base/benchmark.json
+          benchmark-data-dir-path: target/criterion/fib20slow/new/benchmark.json
+          external-data-json-path: target/criterion/fib20slow/base/benchmark.json
